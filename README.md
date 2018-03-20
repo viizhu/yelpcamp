@@ -3,4 +3,4 @@ Yelp for Campsites project made for the Web Developer Bootcamp course by Colt on
 
 [The Web Developer Bootcamp](https://www.udemy.com/the-web-developer-bootcamp/)
 
-[YelpCamp](https://thawing-harbor-82457.herokuapp.com/campgrounds)
+Preview [YelpCamp](https://thawing-harbor-82457.herokuapp.com/campgrounds)

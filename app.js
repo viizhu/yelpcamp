@@ -22,7 +22,6 @@ var commentRoutes    = require("./routes/comments"),
     campgroundRoutes = require("./routes/campgrounds"),
     indexRoutes      = require("./routes/index");
 
-console.log(process.env.DATABASEURL);
  //use yelpcamp database
 mongoose.connect("process.env.DATABASEURL"); //on local server, use local database
     //command line: export DATABASEURL=mongodb://localhost/yelp_camp
@@ -66,7 +65,7 @@ app.use(indexRoutes);
 app.use("/campgrounds/:id/comments", commentRoutes);
 app.use("/campgrounds", campgroundRoutes);
 
-app.listen(3000, function(){
+app.listen(process.env.PORT, process.env.IP, function(){
   console.log("The YelpCamp Server has started");
 });
 

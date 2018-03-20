@@ -22,14 +22,15 @@ var commentRoutes    = require("./routes/comments"),
     campgroundRoutes = require("./routes/campgrounds"),
     indexRoutes      = require("./routes/index");
 
+console.log(process.env.DATABASEURL);
  //use yelpcamp database
 mongoose.connect("process.env.DATABASEURL"); //on local server, use local database
     //command line: export DATABASEURL=mongodb://localhost/yelp_camp
-    //Heroku Settings: Config Variables > KEY = DATABASEURL; VALUE = mongodb://yelpcamp:ycdbpass@ds119489.mlab.com:19489/yelpcamp
+    //Heroku Settings: Config Variables > KEY = DATABASEURL; VALUE = mongodb://<dbuser>:<dbpassword>@ds119489.mlab.com:19489/yelpcamp
     //This way, while on local test, it will use the local database, when on Heroku servers it will use the mlab database
 //Can also run environment for Heroku through commandline:
     //heroku config:set KEY=VALUE
-    //heroku config:set DATABASEURL=mongodb://yelpcamp:ycdbpass@ds119489.mlab.com:19489/yelpcamp
+    //heroku config:set mongodb://<dbuser>:<dbpassword>@ds119489.mlab.com:19489/yelpcamp
 app.use(bodyParser.urlencoded({extended: true}));
 app.set("view engine", "ejs");
 app.use(express.static(__dirname + "/public")); //__dirname is the directory that the script lives in; this serves the public directory
@@ -65,7 +66,7 @@ app.use(indexRoutes);
 app.use("/campgrounds/:id/comments", commentRoutes);
 app.use("/campgrounds", campgroundRoutes);
 
-app.listen(process.env.PORT, process.env.IP, function(){
+app.listen(3000, function(){
   console.log("The YelpCamp Server has started");
 });
 

@@ -22,7 +22,9 @@ var commentRoutes    = require("./routes/comments"),
     campgroundRoutes = require("./routes/campgrounds"),
     indexRoutes      = require("./routes/index");
 
-mongoose.connect("mongodb://localhost/yelp_camp"); //use yelpcamp database
+// mongoose.connect("mongodb://localhost/yelp_camp"); //local database
+mongoose.connect("mongodb://yelpcamp:ycdbpass@ds119489.mlab.com:19489/yelpcamp");
+ //use yelpcamp database
 app.use(bodyParser.urlencoded({extended: true}));
 app.set("view engine", "ejs");
 app.use(express.static(__dirname + "/public")); //__dirname is the directory that the script lives in; this serves the public directory

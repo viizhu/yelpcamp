@@ -22,9 +22,11 @@ var commentRoutes    = require("./routes/comments"),
     campgroundRoutes = require("./routes/campgrounds"),
     indexRoutes      = require("./routes/index");
 
-// mongoose.connect("mongodb://localhost/yelp_camp"); //local database
-mongoose.connect("mongodb://yelpcamp:ycdbpass@ds119489.mlab.com:19489/yelpcamp");
  //use yelpcamp database
+mongoose.connect("process.env.DATABASEURL"); //on local server, use local database
+//command line: export DATABASEURL=mongodb://localhost/yelp_camp
+//Heroku: Config Variables > KEY = DATABASEURL; VALUE = mongodb://yelpcamp:ycdbpass@ds119489.mlab.com:19489/yelpcamp
+//This way, while on local test, it will use the local database, when on Heroku servers it will use the mlab database
 app.use(bodyParser.urlencoded({extended: true}));
 app.set("view engine", "ejs");
 app.use(express.static(__dirname + "/public")); //__dirname is the directory that the script lives in; this serves the public directory

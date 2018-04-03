@@ -9,7 +9,8 @@ var express     = require("express"),
     Comment     = require("./models/comment"),
     User        = require("./models/user"),
     seedDB      = require("./seeds"),
-    flash       = require("connect-flash");
+    flash       = require("connect-flash"),
+    moment      = require("moment");
 
     //^the above works the same as:
     // var express = require("express");

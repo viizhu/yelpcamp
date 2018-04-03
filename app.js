@@ -10,7 +10,6 @@ var express     = require("express"),
     User        = require("./models/user"),
     seedDB      = require("./seeds"),
     flash       = require("connect-flash");
-    // app.locals.moment      = require("moment");
 
     //^the above works the same as:
     // var express = require("express");
@@ -37,6 +36,8 @@ app.use(express.static(__dirname + "/public")); //__dirname is the directory tha
 app.use(methodOverride("_method"));
 app.use(flash());
 // seedDB(); //seeding data into the database
+
+app.locals.moment = require("moment");
 
 //PASSPORT CONFIGURATION
 app.use(require("express-session")({

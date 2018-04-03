@@ -10,7 +10,7 @@ var express     = require("express"),
     User        = require("./models/user"),
     seedDB      = require("./seeds"),
     flash       = require("connect-flash"),
-    moment      = require("moment");
+    app.locals.moment      = require("moment");
 
     //^the above works the same as:
     // var express = require("express");
